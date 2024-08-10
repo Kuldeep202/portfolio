@@ -61,7 +61,7 @@
                 </div>
                 <a class="web" href="#contact">I need a website <i class="fad fa-angle-right"></i>
                </a>
-                <a href="https://www.linkedin.com/in/kuldeep-singh-2a2a88252/" target="_blank" rel="noreferrer">I'm looking to get hired <i class="fad fa-angle-right"></i>
+                <a href="https://www.linkedin.com/in/kuldeep-singh-2a2a88252/" target="_blank" rel="noreferrer">I'm looking to hire <i class="fad fa-angle-right"></i>
                </a>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="column right">
-                    <div class="text">I'm Kuldeep and <span class="break">I'm a <span class="typing2"></span>
+                    <div class="text">I'm a Kuldeep and <span class="break">I'm a <span class="typing2"></span>
                         </span>
                     </div>
                     <p>I am a dedicated front-end developer focused on creating attractive and user-friendly websites. I am passionate about translating design concepts into interactive digital experiences and continuously improving my skill set to stay updated with the latest industry trends. My portfolio showcases a variety of projects that demonstrate my ability to deliver responsive and dynamic web applications.</p>
@@ -313,20 +313,20 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#">
+                    <form name ="submit-to-google-sheet">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" name="Name" placeholder="Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" name="email" required>
+                                <input type="email" placeholder="Email" name="Email" required>
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="Subject" placeholder="Subject" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Describe Project..." required></textarea>
+                            <textarea cols="30" rows="10" name="Describe" placeholder="Describe Project..." required></textarea>
                         </div>
                         <div class="button">
                             <button type="submit">Send Message <i class="fas fa-paper-plane"></i>
@@ -346,6 +346,17 @@
     <!-- External Javascript File start-->
     <script src="script.js" async></script>
     <!-- External Javascript File end-->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxsEjX4XLkrxMW_Ocf0L7IL4q887lUMAnQzUwJR25P6y2FTpyF5Iqgpj6UHynJWjQD9/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 
 </html>
